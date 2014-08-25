@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ski Resort</title>
+	</head>
+	<body>
+
+		<div data-role="page" id="resortPage" data-add-back-btn="true">
+			<div data-id="headerMain" data-role="header" data-position="fixed">
+				<h1 id="headerText"></h1>
+			</div>
+
+			<!-- Info -->
+			<div id="info" data-role="content">
+				<form id="resortForm">
+					<div data-role="fieldcontain">
+						<label for="">Publish Date:</label>
+						<p id="publishDate"></p>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="">Open Status:</label>
+						<p id="openStatus"></p>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="">Base Depth:</label>
+						<p id="baseDepth"></p>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="">Snowfall Last 48hrs:</label>
+						<p id="snowFall48hr"></p>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="">Surface Condition:</label>
+						<p id="surfaceCondition"></p>
+					</div>
+				</form>
+			</div>
+
+			<div data-id="main" data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" id="report" data-icon="info" class="ui-btn-active ui-state-persist">Report</a></li>
+						<li><a id="map" data-icon="grid">Map</a></li>
+						<li><a id="performance" data-icon="gear">Performance</a></li>
+						<li><a id="photos" data-icon="star">Photos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

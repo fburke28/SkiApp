@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NE Ski Planner</title>
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+		<link rel="stylesheet" href="css/skiapp-custom-theme.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.css" />
+		<link href="css/mobiscroll-2.2.custom.min.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+	        body {
+	            /* Setting body margins to 0 to have proper positioning of #container div */
+	            margin: 0;
+	        }
+
+	        /* #container div with absolute position and 100% width and height so it takes up whole window */
+	        #home {
+	            position: absolute;
+	            width: 100%;
+	            height: 100%;
+	            background:url(css/images/ski_on_lift2.jpg) no-repeat;
+	        }
+
+	        #resortForm label {
+	            font-weight: bold;
+	        }
+
+	        #resortForm {
+	        	background: #e7e8ea;
+	        	margin: .8em;
+	        	padding: .6em;
+	        	border: solid;
+	        	border-width: thin;
+	        	-webkit-border-radius: 18px;
+	        	-moz-border-radius: 18px;
+	        	border-radius: 18px;
+	        }
+	    </style>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.2.0.js"></script>
+		<script src="js/mobiscroll-2.2.custom.min.js" type="text/javascript"></script>
+		<script src="js/resortDetails.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>
+
+		<script type="text/javascript">
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			function onDeviceReady() {
+				$.mobile.showPageLoadingMsg();
+				
+				// Retrieve NE regions
+				$.getJSON("http://portfolioaloptimizer.appspot.com/app/snowReport/retrieveSkiRegions", loadRegions);
+
+				setTimeout(function()
+					{navigator.splashscreen.hide();}, 2000
+				);
+			}
+
+			function loadRegions(data) {
+				var regions = data;
+				$('#regionList li').remove();
+				$.each(regions, function(index, region) {
+					$('#regionList').append('<li><a href="skiResorts.html?id=' + region.regionName + '">' + region.regionName + 
+						'</a><span class="ui-li-count">' + region.numResorts + '</span></li>');
+				});
+				$('#regionList').listview('refresh');
+				
+				$.mobile.hidePageLoadingMsg();
+			}
+	    </script>
+	</head>
+
+	<body>
+		<div id="home" data-role="page" data-theme="a" >
+			<div data-role="header">
+				<h1>NE Ski Planner</h1>
+			</div>
+
+			<div data-role="content">
+		          <ul id="regionList" data-role="listview" data-inset="true"></ul>
+		    </div>
+		</div>
+	</body>
+</html>

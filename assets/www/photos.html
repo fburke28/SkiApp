@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Photos</title>
+
+	</head>
+	<body>
+		<div data-role="page" id="photos" data-add-back-btn="true">
+
+	        <div data-id="headerMain" data-role="header" data-position="fixed">
+	            <h1>Photos</h1>
+	        </div>
+
+	        <!-- Photos -->
+			<div id="photos" data-role="content">
+				<form id="resortForm">
+					<div data-role="fieldcontain">
+						<label for="">Capture Photo:</label>
+						<button type="button" onclick="capturePhoto();">Capture Photo</button>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="">View Resort Photos:</label>
+						<input id="scroller" name="scroller" />
+						<button type="button">View Photos</button>
+					</div>
+				</form>
+				<img style="display:none;width:60px;height:60px;" id="myImage" src="" />
+			</div>
+
+	        <div data-id="main" data-role="footer" data-position="fixed">
+	            <div data-role="navbar">
+					<ul>
+						<li><a id="report" data-icon="info">Report</a></li>
+						<li><a id="map" data-icon="grid">Map</a></li>
+						<li><a id="performance" data-icon="gear">Performance</a></li>
+						<li><a href="#" id="photos" data-icon="star" class="ui-btn-active ui-state-persist">Photos</a></li>
+					</ul>
+				</div>
+	        </div>
+
+	    </div>
+	</body>
+</html>
